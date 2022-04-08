@@ -18,11 +18,11 @@ const Styles = styled.div`
       max-width: 1600px;
     }
 
-    form.nosubmit {
+    form.search-form {
       border: none;
       padding: 0;
 
-      input.nosubmit {
+      input {
         width: 400px;
         box-shadow: ${colors.box_shadow2};
         background-color: ${colors.text2};
@@ -36,7 +36,9 @@ const Styles = styled.div`
           no-repeat 13px center;
 
         @media (min-width: 950px) {
-          width: 300px;
+          width: 380px;
+          height: 35px;
+          font-size: 1.1rem;
         }
       }
     }
@@ -52,9 +54,15 @@ const Styles = styled.div`
       line-height: 1;
       height: 32px;
       color: ${colors.text1};
-    }
-    select > option {
-      font-size: 0.9rem;
+
+      select > option {
+        font-size: 0.9rem;
+      }
+      @media (min-width: 950px) {
+        width: 270px;
+        height: 35px;
+        font-size: 1rem;
+      }
     }
   }
 `;

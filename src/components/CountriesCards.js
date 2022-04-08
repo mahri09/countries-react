@@ -17,7 +17,7 @@ export default function CountriesCards({ countriesData }) {
                       alt="Card image cap"
                     />
                     <div className="card-body">
-                      <h5 className="card-title">{name}</h5>
+                      <h3 className="card-title">{name}</h3>
                       <div className="card-info">
                         <p>
                           Population:
