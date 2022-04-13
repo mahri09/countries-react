@@ -12,7 +12,7 @@ const Styles = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1rem 2.6rem;
     }
     @media (min-width: 1150px) {
       max-width: 1600px;

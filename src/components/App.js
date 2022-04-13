@@ -1,43 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import CountriesCards from "./CountriesCards";
+import CountryDetails from "./CountryDetails";
 import Header from "./Header";
-import SearchBar from "./SearchBar";
-import countries from "../data/countriesAll.json";
 import Global from "../styles/global";
+import countries from "../data/countriesAll.json";
 
 function App() {
-  const [countriesData, setCountriesData] = useState(countries);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredCountriesBySearch, setFilteredCountriesBySearch] = useState(
-    []
-  );
-  const [selectOption, setSelectOption] = useState("");
-
-  useEffect(() => {
-    let filteredCountries = countriesData.filter((country) => {
-      return (
-        country.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1 ||
-        country.region.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
-      );
-    });
-    setFilteredCountriesBySearch(filteredCountries);
-  }, [searchQuery]);
-
-  useEffect(() => {
-    let filteredCountries = countriesData.filter((country) => {
-      return country.region.toLowerCase().indexOf(selectOption) !== -1;
-    });
-    setFilteredCountriesBySearch(filteredCountries);
-  }, [selectOption]);
-
   return (
     <Global>
       <Header />
-      <SearchBar
-        setSearchQuery={setSearchQuery}
-        setSelectOption={setSelectOption}
-      />
-      <CountriesCards countriesData={filteredCountriesBySearch} />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={<CountriesCards handleCountriesData={countries} />}
+        />
+        <Route
+          exact
+          path="/details/:name"
+          element={<CountryDetails countriesData={countries} />}
+        />
+      </Routes>
     </Global>
   );
 }
