@@ -66,6 +66,11 @@ export const Styles = styled.div`
           font-weight: lighter;
           margin-left: 0.5rem;
         }
+        .borders{
+          cursor:pointer;
+          color:${colors.black1}
+         
+        }
         .card-info {
           padding-top: 2rem;
           padding-left: 10px;

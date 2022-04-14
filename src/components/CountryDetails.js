@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Styles } from "../styles/countriesDetails";
 
 export default function CountryDetails({ countriesData }) {
   let { name } = useParams();
-  let clickedCountry = countriesData.find((country) => country.name === name);
-  console.log(clickedCountry);
+  const [findByName, setFindByName] = useState(name);
+  const [borderCountries, setBorderCountries] = useState([]);
+
+  let clickedCountry = countriesData.find(
+    (country) => country.name === findByName
+  );
+  useEffect(() => {
+    if (clickedCountry.borders) {
+      let borders = countriesData.filter((bordersCountry) =>
+        clickedCountry.borders.includes(bordersCountry.cioc)
+      );
+      setBorderCountries(borders);
+    }
+  }, []);
+
+  const handleClickedBorderCountry = (e) => {
+    setFindByName(e.target.outerText.slice(0, -1));
+  };
   return (
     <Styles>
       <div className="cards-details">
@@ -56,9 +72,22 @@ export default function CountryDetails({ countriesData }) {
               </p>
               <p>
                 Languages:
-                {clickedCountry.languages.map((language) => (
-                  <span>{language.name},</span>
+                {clickedCountry.languages.map((language, i) => (
+                  <span key={i}>{language.name},</span>
                 ))}
+              </p>
+              <p>
+                Border Countries:
+                {borderCountries &&
+                  borderCountries.map((country, i) => (
+                    <span
+                      className="borders"
+                      onClick={handleClickedBorderCountry}
+                      key={i}
+                    >
+                      {country.name},
+                    </span>
+                  ))}
               </p>
             </div>
           </div>
