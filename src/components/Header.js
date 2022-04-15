@@ -1,17 +1,21 @@
 import React from "react";
 import { Styles } from "../styles/header";
 
-const Header = () => {
+const Header = ({ isDarkTheme, toggleTheme }) => {
   return (
     <Styles>
       <div className="header">
         <h1>Where in the world?</h1>
-        <button>
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/157/157089.png"
-            alt="moon-icon, dark-mode-image"
-          />
-          <span>Dark Mode</span>
+        <button onClick={toggleTheme}>
+          {isDarkTheme ? (
+            <span aria-label="Light mode" role="img">
+              🌞 Light Mode
+            </span>
+          ) : (
+            <span aria-label="Dark mode" role="img">
+              🌜 Dark Mode
+            </span>
+          )}
         </button>
       </div>
     </Styles>

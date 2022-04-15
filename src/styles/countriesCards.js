@@ -5,7 +5,7 @@ export const Styles = styled.div`
   .main-content {
     padding: 1rem;
     max-width: 100%;
-    background-color: ${colors.bg1};
+    background-color: ${({ theme }) => theme.bg1};
     margin: 0 auto;
 
     @media (min-width: 950px) {
@@ -20,14 +20,14 @@ export const Styles = styled.div`
       justify-content: center;
 
       .country-card {
-        background-color: ${colors.bg2};
+        background-color: ${({ theme }) => theme.bg2};
         padding-bottom: 1.5rem;
         border-radius: 4%;
         width: 400px;
         curser: pointer;
         margin: 2rem 1rem 0 1rem;
-        color: ${colors.text1};
-        box-shadow: ${colors.box_shadow};
+        color: ${({ theme }) => theme.text1};
+        box-shadow: ${({ theme }) => theme.box_shadow};
         .card-img {
           width: 100%;
           border-radius: 4% 4% 0 0;
@@ -57,8 +57,8 @@ export const Styles = styled.div`
         }
 
         &:hover {
-          background-color: ${colors.bg3};
-          color: ${colors.text2};
+          background-color: ${({ theme }) => theme.bg3};
+          color: ${({ theme }) => theme.text2};
         }
       }
     }

@@ -8,7 +8,7 @@ export const Styles = styled.div`
     justify-content: flex-start;
     margin: 0 auto;
     max-width: 100%;
-    background-color: ${colors.bg1};
+    background-color:  ${({ theme }) => theme.bg1};
     border-radius: 6px;
     height:950px;
 
@@ -24,10 +24,10 @@ export const Styles = styled.div`
         display: flex;
         padding: 8px 20px;
         margin: 2rem 2rem 3rem;
-        background-color: ${colors.bg2};
-        color: ${colors.text1};
+        background-color:  ${({ theme }) => theme.bg2};
+        color:  ${({ theme }) => theme.text1};
         border: none;
-        box-shadow: ${colors.box_shadow3};
+        box-shadow:  ${({ theme }) => theme.box_shadow3};
 
         img {
           width: 1rem;
@@ -46,7 +46,7 @@ export const Styles = styled.div`
       width: 100%;
       align-items: center;
       margin: 1rem;
-      color: ${colors.text1};
+      color:  ${({ theme }) => theme.text1};
       .card-img {
         width: 90%;
         height: auto;
@@ -68,7 +68,7 @@ export const Styles = styled.div`
         }
         .borders{
           cursor:pointer;
-          color:${colors.black1}
+          color: ${({ theme }) => theme.black1}
          
         }
         .card-info {
