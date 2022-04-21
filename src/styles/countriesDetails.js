@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "./elements/elements";
 
 export const Styles = styled.div`
   .cards-details {
@@ -68,7 +67,7 @@ export const Styles = styled.div`
         }
         .borders{
           cursor:pointer;
-          color: ${({ theme }) => theme.black1}
+          color: ${({ theme }) => theme.text1}
          
         }
         .card-info {
