@@ -25,6 +25,7 @@ const Styles = styled.div`
         width: 400px;
         box-shadow: ${({ theme }) => theme.box_shadow2};
         background-color: ${({ theme }) => theme.bg2};
+        color: ${({ theme }) => theme.text1};
         border: none;
         border-radius: 4px;
         display: block;
